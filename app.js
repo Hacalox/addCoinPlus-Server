@@ -6,7 +6,7 @@ require('dotenv').config()
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./routes')(app, {});
-app.listen(3000, () => {
+app.listen(3000 || process.env.PORT, () => {
   console.log('Working!');
 });
 
