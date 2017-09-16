@@ -21,7 +21,8 @@ module.exports = function(app, db) {
                 hashesMined = parseFloat(hashesMined)
                 let hashesSecondBlockDay = netHashesSecond / (720 * blockReward)
                 let moneyMade = hashesMined * price / (hashesSecondBlockDay * 24 * 3600)
-                res.send('TotalHashes:'+hashesMined + ',TotalMoney:'+ moneyMade)
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify({ TotalHashes: hashesMined , TotalMoney: moneyMade}));
               }
               else{
                 console.log(error);
